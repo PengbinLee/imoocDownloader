@@ -118,7 +118,7 @@ public class Main {
 				
 				if (textField.getText().equals("")) {
 					createAndShowDialog(frame, "课程地址不能为空！");
-				} else if (textField.getText().matches("^http://www.imooc.com/video/+[1-9]+") == false) {
+				} else if (textField.getText().matches("^http://www.imooc.com/video/+[1-9]\\d*$") == false) {
 					createAndShowDialog(frame, "课程地址不合法！");
 				} else {
 					String link = getDownloadLink(textField);
@@ -160,10 +160,8 @@ public class Main {
 	        Strjson = json.toString();
 	        
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return JSONway(Strjson);
